@@ -1,0 +1,28 @@
+{% extends "market/base.html" %}
+{% block content %}
+<div class="card mb-3">
+  <img class="rounded" width="300px" height="300px" src="{{ good.图片.url }}" alt="商品图片"/> 
+  <div class="card-body">
+    <h6 class="card-title">
+    分类：
+        <ol class="breadcrumb">
+        {% for tag in good.分类.all %}
+        <li class="breadcrumb-item active">
+            <a href="{% url 'catgory' tag.id %}">
+                {{ tag.分类 }}
+            </a>
+        </li>
+        {% endfor %}   
+        </ol>
+        价格：{{good.价格}}
+        <br>
+        手机：{{good.发布人.手机}}
+        <br>
+        QQ： {{good.发布人.QQ}}
+        <br>
+        地址：{{good.发布人.地址}}  
+    </h6>
+    详细介绍：{{ good.介绍| safe }}
+  </div>
+</div>
+{% endblock %}

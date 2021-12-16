@@ -1,0 +1,26 @@
+{% extends "market/base.html" %}
+{% block content %}
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col">
+        {% for good in goods.good1 %}
+            {% include "market/mycollectcol.html" %}
+        {% endfor %}
+    </div>
+    <div class="col">
+        {% for good in goods.good2 %}
+            {% include "market/mycollectcol.html" %}
+        {% endfor %}
+    </div>
+    <div class="col">
+        {% for good in goods.good3 %}
+            {% include "market/mycollectcol.html" %}
+            {% endfor %}
+    </div>
+    <div class="col">
+        {% for good in goods.good4 %}
+            {% include "market/mycollectcol.html" %}
+        {% endfor %}
+    </div>
+  </div>
+{% include "market/paging.html" %}
+{% endblock %}

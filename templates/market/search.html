@@ -1,0 +1,55 @@
+{% extends "market/base.html" %}
+{% block content %}
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col">
+        {% for good in goods.good1 %}
+            {% include "market/searchcol.html" %}
+        {% endfor %}
+    </div>
+    <div class="col">
+        {% for good in goods.good2 %}
+            {% include "market/searchcol.html" %}
+        {% endfor %}
+    </div>
+    <div class="col">
+        {% for good in goods.good3 %}
+            {% include "market/searchcol.html" %}
+            {% endfor %}
+    </div>
+    <div class="col">
+        {% for good in goods.good4 %}
+            {% include "market/searchcol.html" %}
+        {% endfor %}
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm"></div>
+    <div class="col-sm">
+    <div>
+    <ul class="pagination pagination-lg ">
+        <li class="page-item">
+        <a class="page-link" href="{% url 'searchmovepage' question page %}?action=pre&pagerange={{pagerange}}&question={{question}}">&laquo;</a>
+        </li>
+        {% for num in pagerange %}
+            {% if num == page %}
+                <li class="page-item active">
+                    <a class="page-link" href="{% url 'searchpage' question num%}">{{ num }}</a>
+                </li>  
+            {% else %} 
+                <li class="page-item">
+                    <a class="page-link" href="{% url 'searchpage' question num %}">{{ num }}</a>
+                </li> 
+            {% endif %}
+        {% endfor %}
+        <li class="page-item">
+        <a class="page-link" href="{% url 'searchmovepage' question page %}?action=nex&pagerange={{pagerange}}&question={{question}}">&raquo;</a>
+        </li> 
+    </ul>
+    </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>
+{% endblock %}

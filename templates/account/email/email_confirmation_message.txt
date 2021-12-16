@@ -1,0 +1,7 @@
+{% load account %}{% user_display user as user_display %}{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}你好，这是来自 {{ site_name }}的邮件!
+
+用户{{ user_display }} 验证邮箱，请点击链接：{{ activate_url }}
+{% endblocktrans %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}谢谢合作！{{ site_name }}!
+{{ site_domain }}{% endblocktrans %}
+{% endautoescape %}

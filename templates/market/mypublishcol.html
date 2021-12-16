@@ -1,0 +1,10 @@
+{% extends "market/col.html" %}
+{% block publish %}
+    <a href="{% url 'modify' good.id %}">
+        <button type="button" class="btn btn-success">更改信息</button>
+    </a>
+    <a  href="{% url 'delpublish' good.id %}">
+        <button type="button" class="btn btn-danger">删除</button>
+    </a>
+  <br>
+{% endblock publish %}

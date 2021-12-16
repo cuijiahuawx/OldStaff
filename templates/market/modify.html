@@ -1,0 +1,31 @@
+{% extends "market/base.html" %}
+{% block content %}
+  <div class="row">
+    <div class="col">
+        <div class="card border-success mb-3 text-center">
+          <div class="card-header"><h1>修改商品信息</h1><br><h6>建议在电脑环境编辑</h6></div>
+          <div class="card-body">
+                <div class="row justify-content-center">
+                    <form action='' method='POST' enctype="multipart/form-data">
+                    {{ form.media }}
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-group form-check">
+                        {{field.label_tag}}
+                        {{field}}
+                    </div>
+                    {% endfor %}  
+                    <div class="row mx-0 justify-content-center align-items-center w-100">
+                        <div class="text-center  w-50">
+                            <span class="badge badge-danger">{{field.errors}}</span>
+                            <button type="submit" class="btn btn-primary btn-lg">提交更改</button> 
+                        </div>
+                    </div>    
+                    </form>                       
+                </div>  
+          </div>
+        </div>
+  </div>
+{% endblock %}
+
+

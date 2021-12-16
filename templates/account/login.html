@@ -1,0 +1,29 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+{% load account socialaccount %}
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block content %} 
+  <div class="row">
+    <div class="col-sm"></div>
+    <div class="col-sm">
+        <div class="card border-primary mb-3 text-center" style="max-width: 50rem;">
+          <div class="card-header"><h1>{% trans "Sign In" %}</h1></div>
+          <div class="card-body">
+              {% get_providers as socialaccount_providers %}
+              <p>如果还没账号，请先<a href="{{ signup_url }}">注册</a></p>
+              <form class="login" method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+                {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <br>
+                <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+              </form>
+          </div>
+        </div>
+    </div>
+    <div class="col-sm"></div>
+  </div>
+{% endblock %}

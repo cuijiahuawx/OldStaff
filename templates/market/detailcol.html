@@ -1,0 +1,52 @@
+
+<div class="card mb-3"">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="..." class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in torffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+</div>
+
+</div>
+    <div class="card border-success mb-3 text-center" style="width: 302px;">
+        <img class="rounded" width="300px" height="300px" src="{{ good.图片.url }}" alt="商品图片"/> 
+        <div class="card-footer">   
+            {% block publish %}{% endblock publish %}
+            {% block mycollect %}{% endblock mycollect %}
+            <a href="{% url 'userpublish' good.发布人.id %}">
+                <img class="rounded-circle" width="50px" height="50px" src="{{ good.发布人.头像.url }}" alt="头像"/> 
+                {{good.发布人.昵称}}           
+            </a>
+            <br>
+            商品名称：{{ good.名称 }} 
+            <ol class="breadcrumb">
+            {% for tag in good.分类.all %}
+            <li class="breadcrumb-item active">
+                <a href="{% url 'catgory' tag.id %}">
+                    {{ tag.分类 }}
+                </a>
+            </li>
+            {% endfor %}   
+            </ol>
+            价格：{{good.价格}}
+            <br>
+            手机：{{good.发布人.手机}}
+            <br>
+            QQ： {{good.发布人.QQ}}
+            <br>
+            地址：{{good.发布人.地址}}  
+            <div style="opacity:0.8; background-color: #abf5e7">
+                <p>简介：{{good.简介}}</p> 
+            </div>  
+            <a href="{% url 'detail' good.id %}"><button type="button" class="btn btn-success">查看详情</button></a>
+            <div style="opacity:0.8; background-color: #abf5e7">
+                <p>详细介绍：{{good.介绍| safe | slice:":50"}}</p> 
+            </div>  
+        </div>             
+    </div>

@@ -1,0 +1,7 @@
+{% extends "market/col.html" %}
+{% block mycollect %}
+    <a  href="{% url 'delcollect' good.id %}">
+        <button type="button" class="btn btn-danger">删除收藏</button>
+    </a>
+    <br>
+{% endblock mycollect %}

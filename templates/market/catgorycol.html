@@ -1,0 +1,7 @@
+{% extends "market/col.html" %}
+{% block mycollect %}
+    {% if request.user.customer %}
+    <a href="{% url 'collect' good.id %}"><button type="button" class="btn btn-success">收藏</button></a>
+    <br>
+    {% endif %}  
+{% endblock mycollect %}
